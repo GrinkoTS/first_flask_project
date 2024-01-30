@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="author" content="Tamara" />
         <meta name="description" content="Первый сайт на Flask" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
         <title> Magic knitting </title>
     </head>
 
@@ -25,21 +25,22 @@
             <div class="main_back">
                 <div> Меня зовут Тамара и я создаю теплые изделия 🧣 </div>
                 <div> Теплые они, потому что связанны с душой 💕 </div>
-
             </div>
         </div>
-
         <h3 class="special"> Волшебные вещи: </h3>
         <ul>
             {% for elem in products %}
                 <a href="http://127.0.0.1:5000/{{elem}}"> <li class="mini_special"> {{elem}} </li> </a>
             {% endfor %}
         </ul>
-
         <h3 class="special"> По типу: </h3>
         <ul>
             <li class="mini_special"> Вязание спицами </li>
             <li class="mini_special"> Вязание крючком </li>
         </ul>
+
+        <a href="http://127.0.0.1:5000/Войти"> <div class="special"> Войти </div> </a>
+        <a href="http://127.0.0.1:5000/Регистрация"> <div class="special"> Регистрация </a>
+        <p class="mini_special"> Для заказа изделия напиши мне в telegram ➡️ <a href="{{ url_for('tg_bot')}}"> by_grinko </a>
     </body>
 </html>

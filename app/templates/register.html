@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+{% for msg in get_flashed_messages() %}
+<div class="hats_back">{{msg}}</div>
+{% endfor %}
+
+<form action="/Регистрация" method="post" class="register">
+
+    <div class="text-field text-field_floating">
+        <input class="text-field__input" type="text" id="name" name="name" placeholder="" required>
+        <label class="text-field__label" for="name">Имя:</label>
+    </div>
+        <p> </p>
+    <div class="text-field text-field_floating">
+        <input class="text-field__input" type="text" id="old" name="old" placeholder="" required>
+        <label class="text-field__label" for="old">Возраст:</label>
+    </div>
+        <p> </p>
+    <div class="text-field text-field_floating">
+        <input class="text-field__input" type="text" id="city" name="city" placeholder="" required>
+        <label class="text-field__label" for="city">Город:</label>
+    </div>
+        <p> </p>
+    <div class="text-field text-field_floating">
+        <input class="text-field__input" type="text" id="email" name="email" placeholder="" required>
+        <label class="text-field__label" for="email">Email:</label>
+    </div>
+        <p> </p>
+    <div class="text-field text-field_floating">
+        <input class="text-field__input" type="password" id="psw" name="psw" placeholder="" required>
+        <label class="text-field__label" for="psw">Пароль:</label>
+    </div>
+        <p> </p>
+    <div class="text-field text-field_floating">
+        <input class="text-field__input" type="password" id="psw2" name="psw2" placeholder="" required>
+        <label class="text-field__label" for="psw2">Повтор пароля:</label>
+    </div>
+        <p> </p>
+    <button type="submit" class="submit submit1">Регистрация</button>
+
+</form>
+
+{% endblock %}

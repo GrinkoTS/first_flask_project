@@ -1,30 +1,15 @@
-<!DOCTYPE html>
-<html lang="ru">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="author" content="Tamara" />
-        <meta name="description" content="Первый сайт на Flask" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
-        <title> Magic hats </title>
-    </head>
+{% extends 'base.html' %}
 
-    <body>
-        <!-- Страница с шапками-->
-        <a href="http://127.0.0.1:5000" ><h2> @grinko_koko </h2> </a>
+{% block content %}
+{{ super() }}
 
-        <div>
-            <div class="hats_back">
-                <div> Вязаные шапки могут быть стильным и модным аксессуаром. </div>
-                <div> Они могут быть частью повседневного наряда или использоваться для создания модного образа. </div>
-                <div> Благодаря разнообразию дизайнов и цветов, каждый может найти вязаную шапку, </div>
-                <div> которая соответствует его стилю и предпочтениям. </div>
-            </div>
-            <img src="/static/images/hats1.jpg" width=600px height=400px alt="hat"/>
-            <img src="/static/images/hats2.jpg" width=600px height=400px alt="hat"/>
-        </div>
-        
+<div class="hats_back">
+    <div> Вязаные шапки могут быть стильным и модным аксессуаром. </div>
+    <div> Они могут быть частью повседневного наряда или использоваться для создания модного образа. </div>
+    <div> Благодаря разнообразию дизайнов и цветов, каждый может найти вязаную шапку, </div>
+    <div> которая соответствует его стилю и предпочтениям. </div>
+</div>
+<img id="object-position-1" src="/static/images/hats1.jpg" width=520px height=400px alt="hat1"/>
+<img src="/static/images/hats2.jpg" width=520px height=400px alt="hat2"/>
 
-        
-
-    </body>
-</html>
+{% endblock %}
