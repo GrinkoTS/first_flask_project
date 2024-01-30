@@ -74,6 +74,7 @@ def login():
         return redirect(url_for('profile'))
     if request.method == 'POST':
         user = m.check_user()
+        print(user.email)
         if not user.email or not check_password_hash(user.psw, request.form['psw']):
             flash('Неверное имя пользователя и/или пароль')
             return redirect(url_for('login'))
@@ -86,8 +87,6 @@ def login():
 @app.route('/profile')
 @login_required
 def profile():
-    #if 'userLogged' not in session or session['userLogged'] != request.form['email']:
-        #abort(404)
     return render_template('profile.html', name=current_user.name)
 
 @app.route('/logout')

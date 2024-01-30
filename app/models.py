@@ -39,8 +39,8 @@ class Products(db.Model, UserMixin):
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-with app.app_context():
-    db.create_all()
+'''with app.app_context():
+    db.create_all()'''
 
 def addUser(*args, **kwargs):
     result = False

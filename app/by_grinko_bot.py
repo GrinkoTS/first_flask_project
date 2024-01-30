@@ -10,7 +10,6 @@ bot = telebot.TeleBot(TOKEN)
 def notification(product):
     bot.send_message(chat_id=config.tg_id, text=f'Внимание! У нас новый заказ на {product}')
 
-
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     print(message)
