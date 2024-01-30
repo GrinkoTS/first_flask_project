@@ -1,9 +1,0 @@
-# created by virtualenv automatically
-config.py
-pyvenv.cfg
-/bin
-/lib
-.idea
-__pycache__
-include
-var
