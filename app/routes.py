@@ -19,9 +19,7 @@ def index():
 
     return render_template('index.html', date=now, day_period=day_period, products=products)
 
-@app.errorhandler(404)
-def pageNotFount(error):
-    return render_template('page404.html', title='Страница не найдена')
+
 
 
 @app.route('/Шапки')
@@ -74,14 +72,17 @@ def login():
         return redirect(url_for('profile'))
     if request.method == 'POST':
         user = m.check_user()
-        print(user.email)
-        if not user.email or not check_password_hash(user.psw, request.form['psw']):
-            flash('Неверное имя пользователя и/или пароль')
-            return redirect(url_for('login'))
+        if user:
+            if not user.email or not check_password_hash(user.psw, request.form['psw']):
+                flash('Неверное имя пользователя и/или пароль')
+                return redirect(url_for('login'))
+            else:
+                rm = True if request.form.get('remainme') else False
+                login_user(user, remember=rm)
+                return redirect(request.args.get('next') or url_for('profile'))
         else:
-            rm = True if request.form.get('remainme') else False
-            login_user(user, remember=rm)
-            return redirect(request.args.get('next') or url_for('profile'))
+            flash('Данный пользователь не зарегистрирован')
+            return redirect(url_for('register'))
     return render_template('login.html', title="Авторизация")
 
 @app.route('/profile')
